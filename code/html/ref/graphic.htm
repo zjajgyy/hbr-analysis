@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Flot Charts</title>
+
+    <link href="./resource_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./resource_files/font-awesome.css" rel="stylesheet">
+
+    <link href="./resource_files/animate.css" rel="stylesheet">
+    <link href="./resource_files/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script></head>
+
+<body class="pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+    <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="./resource_files/profile_small.jpg">
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/profile.html">Profile</a></li>
+                            <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/contacts.html">Contacts</a></li>
+                            <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/index.html">Dashboard v.1</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/dashboard_2.html">Dashboard v.2</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/dashboard_3.html">Dashboard v.3</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/dashboard_4_1.html">Dashboard v.4</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/dashboard_5.html">Dashboard v.5 </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
+                </li>
+                <li class="active">
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li class="active"><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html">Flot Charts</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_morris.html">Morris.js Charts</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_rickshaw.html">Rickshaw Charts</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_chartjs.html">Chart.js</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_chartist.html">Chartist</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/c3.html">c3 charts</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_peity.html">Peity Charts</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_sparkline.html">Sparkline Charts</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/mailbox.html">Inbox</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/mail_detail.html">Email view</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/mail_compose.html">Compose email</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/email_template.html">Email templates</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/metrics.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span>  </a>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/form_basic.html">Basic form</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/form_advanced.html">Advanced Plugins</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/form_wizard.html">Wizard</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/form_file_upload.html">File Upload</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/form_editors.html">Text Editor</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/form_autocomplete.html">Autocomplete</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/form_markdown.html">Markdown</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-desktop"></i> <span class="nav-label">App Views</span>  <span class="pull-right label label-primary">SPECIAL</span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/contacts.html">Contacts</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/profile.html">Profile</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/profile_2.html">Profile v.2</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/contacts_2.html">Contacts v.2</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/projects.html">Projects</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/project_detail.html">Project detail</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/teams_board.html">Teams board</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/social_feed.html">Social feed</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/clients.html">Clients</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/full_height.html">Outlook view</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/vote_list.html">Vote list</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/file_manager.html">File manager</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/calendar.html">Calendar</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/issue_tracker.html">Issue tracker</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/blog.html">Blog</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/article.html">Article</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/faq.html">FAQ</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/timeline.html">Timeline</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/pin_board.html">Pin board</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/search_results.html">Search results</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/lockscreen.html">Lockscreen</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/invoice.html">Invoice</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/login.html">Login</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/login_two_columns.html">Login v.2</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/forgot_password.html">Forget password</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/register.html">Register</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/404.html">404 Page</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/500.html">500 Page</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/empty_page.html">Empty page</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-globe"></i> <span class="nav-label">Miscellaneous</span><span class="label label-info pull-right">NEW</span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/toastr_notifications.html">Notification</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/nestable_list.html">Nestable list</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/agile_board.html">Agile board</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/timeline_2.html">Timeline v.2</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/diff.html">Diff</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/pdf_viewer.html">PDF viewer</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/i18support.html">i18 support</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/sweetalert.html">Sweet alert</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/idle_timer.html">Idle timer</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/truncate.html">Truncate</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/spinners.html">Spinners</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/tinycon.html">Live favicon</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/google_maps.html">Google maps</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/datamaps.html">Datamaps</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/social_buttons.html">Social buttons</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/code_editor.html">Code editor</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/modal_window.html">Modal window</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/clipboard.html">Clipboard</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/forum_main.html">Forum view</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/validation.html">Validation</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/tree_view.html">Tree view</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/loading_buttons.html">Loading buttons</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/chat_view.html">Chat view</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/masonry.html">Masonry</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/tour.html">Tour</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-flask"></i> <span class="nav-label">UI Elements</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/typography.html">Typography</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/icons.html">Icons</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/draggable_panels.html">Draggable Panels</a></li> <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/resizeable_panels.html">Resizeable Panels</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/buttons.html">Buttons</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/video.html">Video</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/tabs_panels.html">Panels</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/tabs.html">Tabs</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/notifications.html">Notifications &amp; Tooltips</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/helper_classes.html">Helper css classes</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/badges_labels.html">Badges, Labels, Progress</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/table_basic.html">Static Tables</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/table_data_tables.html">Data Tables</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/table_foo_table.html">Foo Tables</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/jq_grid.html">jqGrid</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/ecommerce_products_grid.html">Products grid</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/ecommerce_product_list.html">Products list</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/ecommerce_product.html">Product edit</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/ecommerce_product_detail.html">Product detail</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/ecommerce-cart.html">Cart</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/ecommerce-orders.html">Orders</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/ecommerce_payments.html">Credit Card form</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-picture-o"></i> <span class="nav-label">Gallery</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/basic_gallery.html">Lightbox Gallery</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/slick_carousel.html">Slick Carousel</a></li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/carousel.html">Bootstrap Carousel</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-sitemap"></i> <span class="nav-label">Menu Levels </span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Third Level <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level collapse">
+                                <li>
+                                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Third Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Third Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Third Level Item</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Second Level Item</a></li>
+                        <li>
+                            <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Second Level Item</a></li>
+                        <li>
+                            <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Second Level Item</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info pull-right">62</span></a>
+                </li>
+                <li class="landing_link">
+                    <a target="_blank" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
+                </li>
+                <li class="special_link">
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg" style="min-height: 1295px;">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="http://webapplayers.com/inspinia_admin-v2.6.2.1/search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="./resource_files/a7.jpg">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right">46h ago</small>
+                                    <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="./resource_files/a4.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right text-navy">5h ago</small>
+                                    <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="./resource_files/profile.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right">23h ago</small>
+                                    <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                    <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/mailbox.html">
+                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/profile.html">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/grid_options.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/notifications.html">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/login.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Flot Charts</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/index.html">Home</a>
+                        </li>
+                        <li>
+                            <a>Graphs</a>
+                        </li>
+                        <li class="active">
+                            <strong>Flot Charts</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Bar Chart Example <small>With custom colors.</small></h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 1</a>
+                                </li>
+                                <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-bar-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 200px;" width="900" height="400"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 183px; left: 16px; text-align: center;">1</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 183px; left: 91px; text-align: center;">2</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 183px; left: 167px; text-align: center;">3</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 183px; left: 242px; text-align: center;">4</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 183px; left: 318px; text-align: center;">5</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 183px; left: 393px; text-align: center;">6</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 170px; left: 7px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 136px; left: 0px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 102px; left: 0px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 68px; left: 0px; text-align: right;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 34px; left: 0px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 0px; text-align: right;">50</div></div></div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 200px;" width="900" height="400"></canvas></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Line Cahrt Example</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 1</a>
+                                </li>
+                                <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-line-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 200px;" width="900" height="400"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 183px; left: 16px; text-align: center;">1</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 183px; left: 100px; text-align: center;">2</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 183px; left: 185px; text-align: center;">3</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 183px; left: 269px; text-align: center;">4</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 183px; left: 354px; text-align: center;">5</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 183px; left: 439px; text-align: center;">6</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 170px; left: 7px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 136px; left: 0px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 102px; left: 0px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 68px; left: 0px; text-align: right;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 34px; left: 0px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 0px; text-align: right;">50</div></div></div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 200px;" width="900" height="400"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Pie Chart Example</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 1</a>
+                                    </li>
+                                    <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="flot-chart">
+                                <div class="flot-chart-pie-content" id="flot-pie-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;" width="400" height="400"></canvas><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;" width="400" height="400"></canvas><div class="legend"><div style="position: absolute; width: 58px; height: 68px; top: 5px; right: 5px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;top:5px;right:5px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #d3d3d3;overflow:hidden"></div></div></td><td class="legendLabel">Sales 1</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #bababa;overflow:hidden"></div></div></td><td class="legendLabel">Sales 2</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #79d2c0;overflow:hidden"></div></div></td><td class="legendLabel">Sales 3</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #1ab394;overflow:hidden"></div></div></td><td class="legendLabel">Sales 4</td></tr></tbody></table></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Live Chart Example</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 1</a>
+                                    </li>
+                                    <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-line-chart-moving" style="padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 200px;" width="900" height="400"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 162px; left: 34px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 127px; left: 27px; text-align: right;">25</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 93px; left: 27px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 59px; left: 27px; text-align: right;">75</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 25px; left: 20px; text-align: right;">100</div></div></div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 200px;" width="900" height="400"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Multiple Axes Line Chart Example </h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 1</a>
+                                    </li>
+                                    <li><a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-line-chart-multi" style="padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 970px; height: 200px;" width="1940" height="400"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 46px; text-align: center;">Feb 2007</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 132px; text-align: center;">Apr 2007</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 221px; text-align: center;">Jun 2007</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 308px; text-align: center;">Aug 2007</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 398px; text-align: center;">Oct 2007</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 485px; text-align: center;">Dec 2007</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 576px; text-align: center;">Feb 2008</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 663px; text-align: center;">Apr 2008</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 752px; text-align: center;">Jun 2008</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 74px; top: 183px; left: 839px; text-align: center;">Aug 2008</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 170px; left: 14px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 113px; left: 7px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 57px; left: 0px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 0px; text-align: right;">150</div></div><div class="flot-y-axis flot-y2-axis yAxis y2Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 170px; left: 932px;">0.600€</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 113px; left: 932px;">0.667€</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 57px; left: 932px;">0.733€</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 932px;">0.800€</div></div></div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 970px; height: 200px;" width="1940" height="400"></canvas><div class="legend"><div style="position: absolute; width: 153px; height: 34px; bottom: 27px; left: 31px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;bottom:27px;left:31px;;font-size:smaller;color:#999999"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(26,179,148);overflow:hidden"></div></div></td><td class="legendLabel">Oil price ($)</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(20,143,118);overflow:hidden"></div></div></td><td class="legendLabel">USD/EUR exchange rate</td></tr></tbody></table></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company © 2014-2017
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="./resource_files/jquery-2.1.1.js"></script>
+    <script src="./resource_files/bootstrap.min.js"></script>
+    <script src="./resource_files/jquery.metisMenu.js"></script>
+    <script src="./resource_files/jquery.slimscroll.min.js"></script>
+
+    <!-- Flot -->
+    <script src="./resource_files/jquery.flot.js"></script>
+    <script src="./resource_files/jquery.flot.tooltip.min.js"></script>
+    <script src="./resource_files/jquery.flot.resize.js"></script>
+    <script src="./resource_files/jquery.flot.pie.js"></script>
+    <script src="./resource_files/jquery.flot.time.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="./resource_files/inspinia.js"></script>
+    <script src="./resource_files/pace.min.js"></script>
+
+    <!-- Flot demo data -->
+    <script src="./resource_files/flot-demo.js"></script>
+
+
+
+
+<div id="flotTip" style="display: none; position: absolute; background: rgb(255, 255, 255); z-index: 100; padding: 0.4em 0.6em; border-radius: 0.5em; font-size: 0.8em; border: 1px solid rgb(17, 17, 17); white-space: nowrap; left: 480px; top: 387px;"></div><div class="theme-config">
+    <div class="theme-config-box">
+        <div class="spin-icon">
+            <i class="fa fa-cogs fa-spin"></i>
+        </div>
+        <div class="skin-setttings">
+            <div class="title">Configuration</div>
+            <div class="setings-item">
+                    <span>
+                        Collapse menu
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="collapsemenu">
+                        <label class="onoffswitch-label" for="collapsemenu">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Fixed sidebar
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixedsidebar" class="onoffswitch-checkbox" id="fixedsidebar">
+                        <label class="onoffswitch-label" for="fixedsidebar">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Top navbar
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox" id="fixednavbar">
+                        <label class="onoffswitch-label" for="fixednavbar">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Top navbar v.2
+                        <br>
+                        <small>*Primary layout</small>
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixednavbar2" class="onoffswitch-checkbox" id="fixednavbar2">
+                        <label class="onoffswitch-label" for="fixednavbar2">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Boxed layout
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox" id="boxedlayout">
+                        <label class="onoffswitch-label" for="boxedlayout">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Fixed footer
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixedfooter" class="onoffswitch-checkbox" id="fixedfooter">
+                        <label class="onoffswitch-label" for="fixedfooter">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="title">Skins</div>
+            <div class="setings-item default-skin">
+                    <span class="skin-name ">
+                         <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#" class="s-skin-0">
+                             Default
+                         </a>
+                    </span>
+            </div>
+            <div class="setings-item blue-skin">
+                    <span class="skin-name ">
+                        <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#" class="s-skin-1">
+                            Blue light
+                        </a>
+                    </span>
+            </div>
+            <div class="setings-item yellow-skin">
+                    <span class="skin-name ">
+                        <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/graph_flot.html#" class="s-skin-3">
+                            Yellow/Purple
+                        </a>
+                    </span>
+            </div>
+            <div class="setings-item ultra-skin">
+                    <span class="skin-name ">
+                        <a href="http://webapplayers.com/inspinia_admin-v2.6.2.1/md_skin/" class="md-skin">
+                            Material Design
+                        </a>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Config box
+
+    // Enable/disable fixed top navbar
+    $('#fixednavbar').click(function (){
+        if ($('#fixednavbar').is(':checked')){
+            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+            $("body").removeClass('boxed-layout');
+            $("body").addClass('fixed-nav');
+            $('#boxedlayout').prop('checked', false);
+
+            if (localStorageSupport){
+                localStorage.setItem("boxedlayout",'off');
+            }
+
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar",'on');
+            }
+        } else{
+            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+            $("body").removeClass('fixed-nav');
+            $("body").removeClass('fixed-nav-basic');
+            $('#fixednavbar2').prop('checked', false);
+
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar",'off');
+            }
+
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar2",'off');
+            }
+        }
+    });
+
+    // Enable/disable fixed top navbar
+    $('#fixednavbar2').click(function (){
+        if ($('#fixednavbar2').is(':checked')){
+            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+            $("body").removeClass('boxed-layout');
+            $("body").addClass('fixed-nav').addClass('fixed-nav-basic');
+            $('#boxedlayout').prop('checked', false);
+
+            if (localStorageSupport){
+                localStorage.setItem("boxedlayout",'off');
+            }
+
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar2",'on');
+            }
+        } else {
+            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+            $("body").removeClass('fixed-nav').removeClass('fixed-nav-basic');
+            $('#fixednavbar').prop('checked', false);
+
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar2",'off');
+            }
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar",'off');
+            }
+        }
+    });
+
+    // Enable/disable fixed sidebar
+    $('#fixedsidebar').click(function (){
+        if ($('#fixedsidebar').is(':checked')){
+            $("body").addClass('fixed-sidebar');
+            $('.sidebar-collapse').slimScroll({
+                height: '100%',
+                railOpacity: 0.9
+            });
+
+            if (localStorageSupport){
+                localStorage.setItem("fixedsidebar",'on');
+            }
+        } else{
+            $('.sidebar-collapse').slimscroll({destroy: true});
+            $('.sidebar-collapse').attr('style', '');
+            $("body").removeClass('fixed-sidebar');
+
+            if (localStorageSupport){
+                localStorage.setItem("fixedsidebar",'off');
+            }
+        }
+    });
+
+    // Enable/disable collapse menu
+    $('#collapsemenu').click(function (){
+        if ($('#collapsemenu').is(':checked')){
+            $("body").addClass('mini-navbar');
+            SmoothlyMenu();
+
+            if (localStorageSupport){
+                localStorage.setItem("collapse_menu",'on');
+            }
+
+        } else{
+            $("body").removeClass('mini-navbar');
+            SmoothlyMenu();
+
+            if (localStorageSupport){
+                localStorage.setItem("collapse_menu",'off');
+            }
+        }
+    });
+
+    // Enable/disable boxed layout
+    $('#boxedlayout').click(function (){
+        if ($('#boxedlayout').is(':checked')){
+            $("body").addClass('boxed-layout');
+            $('#fixednavbar').prop('checked', false);
+            $('#fixednavbar2').prop('checked', false);
+            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+            $("body").removeClass('fixed-nav');
+            $("body").removeClass('fixed-nav-basic');
+            $(".footer").removeClass('fixed');
+            $('#fixedfooter').prop('checked', false);
+
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar",'off');
+            }
+
+            if (localStorageSupport){
+                localStorage.setItem("fixednavbar2",'off');
+            }
+
+            if (localStorageSupport){
+                localStorage.setItem("fixedfooter",'off');
+            }
+
+
+            if (localStorageSupport){
+                localStorage.setItem("boxedlayout",'on');
+            }
+        } else{
+            $("body").removeClass('boxed-layout');
+
+            if (localStorageSupport){
+                localStorage.setItem("boxedlayout",'off');
+            }
+        }
+    });
+
+    // Enable/disable fixed footer
+    $('#fixedfooter').click(function (){
+        if ($('#fixedfooter').is(':checked')){
+            $('#boxedlayout').prop('checked', false);
+            $("body").removeClass('boxed-layout');
+            $(".footer").addClass('fixed');
+
+            if (localStorageSupport){
+                localStorage.setItem("boxedlayout",'off');
+            }
+
+            if (localStorageSupport){
+                localStorage.setItem("fixedfooter",'on');
+            }
+        } else{
+            $(".footer").removeClass('fixed');
+
+            if (localStorageSupport){
+                localStorage.setItem("fixedfooter",'off');
+            }
+        }
+    });
+
+    // SKIN Select
+    $('.spin-icon').click(function (){
+        $(".theme-config-box").toggleClass("show");
+    });
+
+    // Default skin
+    $('.s-skin-0').click(function (){
+        $("body").removeClass("skin-1");
+        $("body").removeClass("skin-2");
+        $("body").removeClass("skin-3");
+    });
+
+    // Blue skin
+    $('.s-skin-1').click(function (){
+        $("body").removeClass("skin-2");
+        $("body").removeClass("skin-3");
+        $("body").addClass("skin-1");
+    });
+
+    // Inspinia ultra skin
+    $('.s-skin-2').click(function (){
+        $("body").removeClass("skin-1");
+        $("body").removeClass("skin-3");
+        $("body").addClass("skin-2");
+    });
+
+    // Yellow skin
+    $('.s-skin-3').click(function (){
+        $("body").removeClass("skin-1");
+        $("body").removeClass("skin-2");
+        $("body").addClass("skin-3");
+    });
+
+    if (localStorageSupport){
+        var collapse = localStorage.getItem("collapse_menu");
+        var fixedsidebar = localStorage.getItem("fixedsidebar");
+        var fixednavbar = localStorage.getItem("fixednavbar");
+        var fixednavbar2 = localStorage.getItem("fixednavbar2");
+        var boxedlayout = localStorage.getItem("boxedlayout");
+        var fixedfooter = localStorage.getItem("fixedfooter");
+
+        if (collapse == 'on'){
+            $('#collapsemenu').prop('checked','checked')
+        }
+        if (fixedsidebar == 'on'){
+            $('#fixedsidebar').prop('checked','checked')
+        }
+        if (fixednavbar == 'on'){
+            $('#fixednavbar').prop('checked','checked')
+        }
+        if (fixednavbar2 == 'on'){
+            $('#fixednavbar2').prop('checked','checked')
+        }
+        if (boxedlayout == 'on'){
+            $('#boxedlayout').prop('checked','checked')
+        }
+        if (fixedfooter == 'on') {
+            $('#fixedfooter').prop('checked','checked')
+        }
+    }
+</script></body></html>

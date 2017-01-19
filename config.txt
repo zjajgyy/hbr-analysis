@@ -1,0 +1,4 @@
+mysql_db:
+ip: 121.194.62.243
+username/pwd: hbr / hbrxiang123
+

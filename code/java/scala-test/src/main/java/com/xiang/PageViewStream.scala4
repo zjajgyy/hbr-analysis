@@ -1,0 +1,267 @@
+import kafka.serializer.StringDecoder
+import net.sf.json.JSONObject
+import org.apache.spark.SparkConf
+import org.apache.spark.streaming.{Seconds, StreamingContext}
+import org.apache.spark.streaming.kafka.KafkaUtils
+
+import scala.collection.mutable.ArrayBuffer
+
+/**
+  * Created by hmh on 2016/12/25.*/
+object PageViewStream {
+  val down: Double = 0.3
+  val up: Double = 2
+  val time_interval: Double = 0.004
+
+  def main(args: Array[String]): Unit = {
+    var masterUrl = "local[2]"
+    if (args.length > 0) {
+      masterUrl = args(0)
+    }
+
+    // Create a StreamingContext with the given master URL
+    val conf = new SparkConf().setMaster(masterUrl).setAppName("PageViewStream")
+    val ssc = new StreamingContext(conf, Seconds(5))
+
+    // Kafka configurations
+    //val topics = Set("PageViewStream")
+    val topics = Set("user_events")
+    //本地虚拟机ZK地址
+    //val brokers = "hadoop1:9092,hadoop2:9092,hadoop3:9092"
+    val brokers = "localhost:9092"
+    val kafkaParams = Map[String, String](
+      "metadata.broker.list" -> brokers,
+      "serializer.class" -> "kafka.serializer.StringEncoder")
+
+    // Create a direct stream
+    val kafkaStream = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](ssc, kafkaParams, topics)
+
+    //获取event
+    val events = kafkaStream.map(line => {
+      val data = JSONObject.fromObject(line._2)
+      data
+    })
+    val lines = events.map(x => (x.getString("uid"), x.getString("heartbeat")))
+    val originData = new ArrayBuffer[Int]();
+    lines.foreachRDD(rdd=>{
+      rdd.foreach(x=>{
+        handleArr(x._2.split(","))
+      })
+    })
+
+
+
+    ssc.start()
+    ssc.awaitTermination()
+
+  }
+
+  def handleArr(arr : Array[String]): Unit = {
+
+    val originData = new ArrayBuffer[Int]()
+    //val temp:Array[String] = msg.getString("heartbeat").split(",")
+    arr.foreach( x => originData.append(x.toInt))
+    val intervalArray = getInterval(originData)
+    println("intervalArray大小：",intervalArray.size)
+    val SD1,SD2 = calSD1AndSD2(intervalArray)
+    println("SD1--SD2:" + SD1,SD2)
+  }
+
+  def getInterval(arrayBuffer: ArrayBuffer[Int]):Array[Double]={
+    /*
+    *  第一次数据过滤
+    */
+    val dataLength1 = arrayBuffer.size
+    val dataBin = arrayBuffer.toArray
+    var id = new Array[Int](dataLength1+1)
+    var dataBin1 = new Array[Long](dataLength1+1)
+    var i = 1 //初始数据的下标
+    var k = 1 //第一次过滤后的数据下标
+    var j = 1 //计算平均值的下标
+    var meanBegin: Long=0
+    var meanEnd: Long=0
+    var mean: Long=0
+    val interval=10
+
+    //计算前interval和后interval个点的平均值
+    for (i <- 1 to interval){
+      meanBegin = meanBegin + dataBin(i)
+    }
+    meanBegin = meanBegin/interval
+    for (i <- (dataLength1-interval+1) until dataLength1){
+      meanEnd = meanEnd + dataBin(i)
+    }
+    meanEnd = meanEnd/interval
+    //判断第一个点是否为峰值点
+    if (dataBin(1)>dataBin(2) & dataBin(1)>meanBegin){
+      id(k) = 1
+      dataBin1(k) = dataBin(i)
+      k = k+1
+    }
+
+    //判断中间点是否为峰值点
+    for (i <- 2 until dataLength1 - 1){
+      //前interval个点
+      if (i<=(interval/2) & dataBin(i)>dataBin(i+1) & dataBin(i)>dataBin(i-1) & dataBin(i)>meanBegin){
+        id(k) = i
+        dataBin1(k) = dataBin(i)
+        k = k+1
+      }
+
+      //中间的点
+      if (i>(interval/2+1) & i<(dataLength1-(interval/2))){
+        if (dataBin(i)>dataBin(i+1) & dataBin(i)>dataBin(i-1)){
+          for (j <- (i-interval/2) to (i+interval/2-1)){
+            mean = mean + dataBin(j)
+          }
+          mean = mean/interval
+          if (dataBin(i)>mean){
+            id(k) = i
+            dataBin1(k) = dataBin(i)
+            k = k+1
+          }
+        }
+      }
+
+      //后interval个点
+      if (i>=dataLength1-(interval/2)){
+        if (dataBin(i)>dataBin(i+1) & dataBin(i)>dataBin(i-1) & dataBin(i)>meanEnd){
+          id(k) = i
+          dataBin1(k) = dataBin(i)
+          k = k+1
+        }
+      }
+    }
+
+    //判断最后一个点是否为峰值点
+    if (dataBin(dataLength1-1) > dataBin(dataLength1-2) & dataBin(dataLength1 - 1)>meanEnd){
+      id(k) = i
+      dataBin1(k) = dataBin(i)
+      k = k+1
+    }
+
+    println(k-1)
+
+
+    /*
+    *  第二次数据过滤
+    */
+    val dataLength2 = k-1 //第一次过滤后的数据个数
+    var id2 = new Array[Int](dataLength2+1)
+    i = 1 //id数组和dataBin1数组的数据下标
+    k = 1 //第二次过滤后的数据下标
+    var ix = 0 //i对应的id中的相应数据
+    //计算前interval和后interval个点的平均值
+    for (i <- 1 to interval){
+      meanBegin = meanBegin + dataBin1(i)
+    }
+    meanBegin = meanBegin/interval
+    for (i <- (dataLength2-interval+1) until dataLength2){
+      meanEnd = meanEnd + dataBin1(i)
+    }
+    meanEnd = meanEnd/interval
+
+    //判断第一个点是否为峰值点
+    if (dataBin1(1)>dataBin1(2) & dataBin1(1)>meanBegin){
+      id2(k) = 1
+      //println(k, "  ", i, " ", ix)
+      k = k+1
+    }
+    //判断中间点是否为峰值点
+    for (i <- 2 to (dataLength2-1)){
+      //前interval个点
+      ix = id(i)
+      if (i<=(interval/2) & dataBin1(i)>dataBin1(i+1) & dataBin1(i)>dataBin1(i-1) & dataBin1(i)>meanBegin){
+        id2(k) = ix
+        //println(k, "  ", i, " ", ix)
+        k = k+1
+      }
+
+      //中间的点
+      if (i>(interval/2+1) & i<(dataLength2-(interval/2))){
+        if (dataBin1(i)>dataBin1(i+1) & dataBin1(i)>dataBin1(i-1)){
+          for (j <- (i-interval/2) to (i+interval/2-1)){
+            mean = mean + dataBin1(j)
+          }
+          mean = mean/interval
+          if (dataBin1(i)>mean){
+            id2(k) = ix
+            //println(k, "  ", i, " ", ix)
+            k = k+1
+          }
+        }
+      }
+
+      //后interval个点
+      if (i>=dataLength2-(interval/2)){
+        if (dataBin1(i)>dataBin1(i+1) & dataBin1(i)>dataBin1(i-1) & dataBin1(i)>meanEnd){
+          id2(k) = ix
+          //println(k, "  ", i, " ", ix)
+          k = k+1
+        }
+      }
+    }
+
+
+    //判断最后一个点是否为峰值点
+    if (dataBin1(dataLength2)>dataBin1(dataLength2-1) & dataBin1(dataLength2)>meanEnd){
+      id2(k) = ix
+      println(k, "  ", i, " ", ix)
+      k = k+1
+    }
+
+    println(k-1)
+    // for (i <- 1 to k-1){
+    //   println(id2(i))
+    // }
+    /*
+    *  计算时间间隔
+    */
+    val timeLength = k-1
+    var time = new Array[Double](timeLength)
+    var rr: Double=0
+    k = 1
+    for (i <- 2 to timeLength){
+      rr = (id2(i)-id2(i-1))*time_interval
+      if (rr<=up & rr>=down){
+        time(k) = rr
+        k = k+1
+      }
+    }
+    println(k-1)
+    return time
+  }
+
+
+  def calSD1AndSD2(interArray: Array[Double]):(Double,Double)={
+    val len =  interArray.size
+    println("array len:",len)
+    //x,y数组
+    var arrayX = new Array[Double](len)
+    var arrayY = new Array[Double](len)
+    val arrayX_Y = new Array[Double](len)
+    val arrayXY = new Array[Double](len)
+    arrayX = interArray.dropRight(1)
+    arrayY = interArray.drop(1)
+    for (i <- 0 to (len-2)){
+      arrayX_Y(i) = arrayX(i) - arrayY(i)
+      arrayXY(i) = arrayX(i) + arrayY(i)
+    }
+    println("array len:",arrayX_Y.length)
+    val SD1 = calculateSD(arrayX_Y)
+    val SD2 = calculateSD(arrayXY)
+
+    println("SD1:",SD1)
+    println("SD2:",SD2)
+    return(SD1,SD2)
+  }
+
+  def calculateSD(array:Array[Double]):Double={
+    //var array = array
+    //通过map和reduce方法得到(x-y)的和,(x-y)的平方和
+    val result = array.map(a => (1,a,a*a)).reduce((a,b)=>(a._1 + b._1,a._2+b._2,a._3+b._3))
+    val SD = Math.sqrt((result._3/result._1-result._2*result._2/result._1/result._1)/2)
+    return SD
+  }
+}
+

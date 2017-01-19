@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: zkclient-0.3.jar zookeeper-3.4.6.jar slf4j-log4j12-1.6.1.j
+ ar lz4-1.2.0.jar kafka_2.10-0.8.2.0.jar kafka-clients-0.8.2.0.jar jun
+ it-3.8.1.jar netty-3.7.0.Final.jar scala-library-2.10.4.jar metrics-c
+ ore-2.2.0.jar slf4j-api-1.7.6.jar jopt-simple-3.2.jar log4j-1.2.16.ja
+ r jline-0.9.94.jar snappy-java-1.1.1.6.jar
+Main-Class: com.lpxiang.hbr.KafkaProducer
+

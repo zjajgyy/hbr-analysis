@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- RESOURCES -->
+    <!--<mvc:resources mapping="/static/**" location="/static/" order="-1"/>-->
+    <!-- RESOURCES END -->
+
+    <!-- MVC ANNOTATION -->
+    <!-- 启动注解驱动的Spring MVC功能，注册请求url和注解POJO类方法的映射--> <!--必须配置这一行，不然无法定向请求，直接报404-->
+    <mvc:annotation-driven />
+    <!-- 启动包扫描功能，以便注册带有@Controller、@Service、@repository、@Component等注解的类成为spring的bean -->
+    <context:component-scan base-package="com.bigdata.hbr.controller" />
+    <context:component-scan base-package="com.bigdata.hbr.service" />
+    <!-- MVC ANNOTATION END -->
+
+    <!-- MVC VIEWS -->
+    <!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--aop配置-->
+    <aop:aspectj-autoproxy />
+
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >-->
+        <!--<property name="maxUploadSize" value="104857600"/>-->
+    <!--</bean>-->
+    <!-- MVC VIEWS END -->
+
+</beans>

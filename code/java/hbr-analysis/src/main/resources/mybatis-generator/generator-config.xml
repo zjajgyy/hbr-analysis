@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+
+    <context id="hbrTables"  targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://121.194.62.243:3306/hbr_analysis"
+                        userId="hbr"
+                        password="hbrxiang123">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="com.bigdata.hbr.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <!--<sqlMapGenerator targetPackage="mybatis.rebate" targetProject="src/main/webapp/WEB-INF">-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</sqlMapGenerator>-->
+        <!--生成mapper类存放位置-->
+        <!-- type: ANNOTATEDMAPPER / XMLMAPPER-->
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.bigdata.hbr.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--生成对应表及类名-->
+        <!--enableCountByExample="false"-->
+        <!--enableUpdateByPrimaryKey="true"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableSelectByExample="true"-->
+        <!--enableSelectByPrimaryKey="true"-->
+
+        <table tableName="patient" domainObjectName="Patient"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               enableUpdateByPrimaryKey="true" selectByExampleQueryId="false"></table>
+
+        <table tableName="patient_result" domainObjectName="PatientResult"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               enableUpdateByPrimaryKey="true" selectByExampleQueryId="false"></table>
+
+        <table tableName="user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               enableUpdateByPrimaryKey="true" selectByExampleQueryId="false"></table>
+
+        <table tableName="user_result" domainObjectName="UserResult"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               enableUpdateByPrimaryKey="true" selectByExampleQueryId="false"></table>
+
+
+    </context>
+</generatorConfiguration>
